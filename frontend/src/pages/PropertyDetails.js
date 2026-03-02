@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import api from '../utils/api';
 import { AuthContext } from '../context/AuthContext';
-import { FaBed, FaBath, FaRuler, FaMapMarkerAlt, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaBed, FaBath, FaRuler, FaMapMarkerAlt } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -26,6 +26,7 @@ const PropertyDetails = () => {
 
   useEffect(() => {
     fetchProperty();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const fetchProperty = async () => {
@@ -107,7 +108,7 @@ const PropertyDetails = () => {
                 <SwiperSlide key={index}>
                   <img
                     src={image.url}
-                    alt={`${property.title} - Image ${index + 1}`}
+                    alt={`Property view ${index + 1}`}
                     className="main-image"
                   />
                 </SwiperSlide>

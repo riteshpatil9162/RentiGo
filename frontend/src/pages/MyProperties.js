@@ -8,7 +8,6 @@ import {
   FaRuler, 
   FaMapMarkerAlt, 
   FaTrash, 
-  FaEdit,
   FaEye,
   FaPlus
 } from 'react-icons/fa';

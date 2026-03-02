@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaSearch, FaHome, FaShieldAlt, FaHandshake, FaArrowRight, FaCheckCircle, FaUsers, FaBuilding } from 'react-icons/fa';
+import { FaSearch, FaHome, FaShieldAlt, FaHandshake, FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 import './Home.css';
 
 const Home = () => {
