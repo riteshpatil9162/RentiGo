@@ -1,8 +1,8 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import api from '../utils/api';
 import { toast } from 'react-toastify';
-import { FaUser, FaEnvelope, FaPhone, FaLock, FaUserTag } from 'react-icons/fa';
+import { FaUser, FaEnvelope, FaPhone, FaLock, FaUserTag, FaCamera, FaUpload } from 'react-icons/fa';
 import './Profile.css';
 
 const Profile = () => {
@@ -24,6 +24,9 @@ const Profile = () => {
 
   const [loadingProfile, setLoadingProfile] = useState(false);
   const [loadingPassword, setLoadingPassword] = useState(false);
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const [imagePreview, setImagePreview] = useState(null);
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     if (user) {
@@ -104,6 +107,70 @@ const Profile = () => {
     }
   };
 
+  // Handle image file selection
+  const handleImageSelect = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      // Validate file type
+      if (!file.type.startsWith('image/')) {
+        toast.error('Please select an image file');
+        return;
+      }
+
+      // Validate file size (5MB max)
+      if (file.size > 5 * 1024 * 1024) {
+        toast.error('Image size must be less than 5MB');
+        return;
+      }
+
+      // Create preview
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+
+      // Upload image
+      handleImageUpload(file);
+    }
+  };
+
+  // Upload image to server
+  const handleImageUpload = async (file) => {
+    setUploadingImage(true);
+
+    try {
+      const formData = new FormData();
+      formData.append('avatar', file);
+
+      console.log('Uploading avatar image...');
+      
+      const response = await api.post('/upload/avatar', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      if (response.data.success) {
+        toast.success('Profile picture uploaded successfully!');
+        updateUser(response.data.user);
+        setImagePreview(null);
+      }
+    } catch (error) {
+      console.error('Image Upload Error:', error);
+      const message = error.response?.data?.message || 'Failed to upload image';
+      toast.error(message);
+      setImagePreview(null);
+    } finally {
+      setUploadingImage(false);
+    }
+  };
+
+  // Trigger file input click
+  const handleAvatarClick = () => {
+    fileInputRef.current.click();
+  };
+
   return (
     <div className="profile-page">
       <div className="container">
@@ -115,10 +182,33 @@ const Profile = () => {
         <div className="profile-content">
           {/* User Info Card */}
           <div className="profile-info-card">
-            <div className="profile-avatar">
-              <img 
-                src={user?.avatar || 'https://via.placeholder.com/150'} 
-                alt={user?.name}
+            <div className="profile-avatar-wrapper">
+              <div className="profile-avatar">
+                <img 
+                  src={imagePreview || user?.avatar || 'https://via.placeholder.com/150'} 
+                  alt={user?.name}
+                />
+                {uploadingImage && (
+                  <div className="avatar-upload-overlay">
+                    <div className="spinner"></div>
+                    <p>Uploading...</p>
+                  </div>
+                )}
+              </div>
+              <button 
+                type="button" 
+                className="avatar-upload-btn" 
+                onClick={handleAvatarClick}
+                disabled={uploadingImage}
+              >
+                <FaCamera /> Change Photo
+              </button>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                onChange={handleImageSelect}
+                style={{ display: 'none' }}
               />
             </div>
             <h2>{user?.name}</h2>
@@ -181,7 +271,7 @@ const Profile = () => {
 
               <div className="form-group">
                 <label className="form-label">
-                  <FaUser /> Avatar URL (Optional)
+                  <FaUpload /> Avatar URL (Optional)
                 </label>
                 <input
                   type="url"
@@ -191,7 +281,7 @@ const Profile = () => {
                   value={profileData.avatar}
                   onChange={handleProfileChange}
                 />
-                <small className="form-text">Enter a URL for your profile picture</small>
+                <small className="form-text">Or use the "Change Photo" button above to upload an image</small>
               </div>
 
               <button 
