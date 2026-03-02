@@ -1,0 +1,16 @@
+"D:\RP\Projects\House Renting\RentiGo" # here i want to create project in Mern stack
+
+
+see this idea : ""D:\RP\Projects\House Renting\RentiGo Information.docx"" on this path
+
+This is the house renting website which will look professional with navbar and footer in it. Create the env file for this then i will insert the uri in it. I am using the mongodb atlas bor database and razorpay for payment integration.
+
+I want to create a fully working mern stack project.
+
+Create a modern, professional website called "RentiGo".
+
+The UI should look production-ready and suitable for a national-level hackathon.
+
+Avoid overusing accent colors.
+
+Make the design visually impressive and ready for hackathon judges.

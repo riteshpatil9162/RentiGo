@@ -1,0 +1,481 @@
+.admin-properties-page {
+  padding: 3rem 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.admin-properties-page .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.admin-properties-page h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+}
+
+.admin-properties-page .page-header > div > p {
+  color: #64748b;
+}
+
+.stats-summary {
+  display: flex;
+  gap: 2rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  border-radius: 0.75rem;
+  color: white;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.filter-section {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background: white;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+}
+
+.properties-table {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.properties-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.properties-table thead {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  color: white;
+}
+
+.properties-table th {
+  padding: 1.25rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.properties-table td {
+  padding: 1.25rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.properties-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.properties-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.property-image {
+  width: 100px;
+  height: 70px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.property-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.property-info h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: #1e293b;
+}
+
+.property-type {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: #e0f2fe;
+  color: #0369a1;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.owner-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.owner-name {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.owner-email {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.location-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.location-icon {
+  color: #3b82f6;
+  font-size: 1rem;
+}
+
+.location-info div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.location-info span {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.location-info small {
+  color: #64748b;
+  font-size: 0.75rem;
+}
+
+.property-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.property-details span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #475569;
+}
+
+.property-details svg {
+  color: #3b82f6;
+}
+
+.price-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.price {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.price-info small {
+  color: #64748b;
+  font-size: 0.75rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: capitalize;
+}
+
+.status-badge.available {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-badge.rented {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.view-btn {
+  background: #dbeafe;
+  color: #1e40af;
+  text-decoration: none;
+}
+
+.view-btn:hover {
+  background: #3b82f6;
+  color: white;
+  transform: scale(1.1);
+}
+
+.delete-btn {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.delete-btn:hover {
+  background: #ef4444;
+  color: white;
+  transform: scale(1.1);
+}
+
+.empty-state {
+  background: white;
+  padding: 4rem 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+}
+
+.empty-state p {
+  color: #64748b;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+@media (max-width: 1200px) {
+  .properties-table {
+    overflow-x: auto;
+  }
+
+  .properties-table table {
+    min-width: 1000px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-properties-page {
+    padding: 2rem 0;
+  }
+
+  .admin-properties-page h1 {
+    font-size: 1.75rem;
+  }
+
+  .admin-properties-page .page-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+  }
+
+  .stats-summary {
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .stat-item {
+    flex: 1;
+    padding: 1rem;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.8125rem;
+  }
+
+  .filter-section {
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .properties-table th {
+    padding: 1rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .properties-table td {
+    padding: 1rem 0.75rem;
+  }
+
+  .property-image {
+    width: 80px;
+    height: 60px;
+  }
+
+  .property-info h4 {
+    font-size: 0.9rem;
+  }
+
+  .property-type {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.625rem;
+  }
+
+  .owner-name {
+    font-size: 0.875rem;
+  }
+
+  .owner-email {
+    font-size: 0.8125rem;
+  }
+
+  .location-info span {
+    font-size: 0.875rem;
+  }
+
+  .property-details {
+    font-size: 0.8125rem;
+    gap: 0.4rem;
+  }
+
+  .price {
+    font-size: 1rem;
+  }
+
+  .status-badge {
+    font-size: 0.8125rem;
+    padding: 0.4rem 0.875rem;
+  }
+
+  .action-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8125rem;
+  }
+
+  .empty-state {
+    padding: 3rem 1.5rem;
+  }
+
+  .empty-state h3 {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .admin-properties-page {
+    padding: 1.5rem 0;
+  }
+
+  .admin-properties-page h1 {
+    font-size: 1.5rem;
+  }
+
+  .admin-properties-page .page-header {
+    padding: 1.25rem;
+  }
+
+  .admin-properties-page .page-header > div > p {
+    font-size: 0.875rem;
+  }
+
+  .stats-summary {
+    gap: 0.75rem;
+  }
+
+  .stat-item {
+    padding: 0.875rem 0.75rem;
+  }
+
+  .stat-value {
+    font-size: 1.35rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+  }
+
+  .filter-section {
+    gap: 0.75rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+    min-width: 100px;
+  }
+
+  .properties-table {
+    border-radius: 0.75rem;
+  }
+}

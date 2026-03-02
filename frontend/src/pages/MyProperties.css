@@ -1,0 +1,351 @@
+.my-properties-page {
+  padding: 3rem 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.my-properties-page .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.my-properties-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.my-properties-page .page-header > div > p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+}
+
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.property-card {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.property-image {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.property-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.property-card:hover .property-image img {
+  transform: scale(1.1);
+}
+
+.status-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: capitalize;
+  backdrop-filter: blur(10px);
+}
+
+.status-badge.available {
+  background: rgba(16, 185, 129, 0.9);
+  color: white;
+}
+
+.status-badge.rented {
+  background: rgba(239, 68, 68, 0.9);
+  color: white;
+}
+
+.property-body {
+  padding: 1.5rem;
+}
+
+.property-body h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: #1e293b;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #64748b;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.location svg {
+  color: #3b82f6;
+}
+
+.property-features {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+.property-features span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #475569;
+  font-weight: 600;
+}
+
+.property-features svg {
+  color: #3b82f6;
+}
+
+.property-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.period {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.view-btn {
+  background: #dbeafe;
+  color: #1e40af;
+  text-decoration: none;
+}
+
+.view-btn:hover {
+  background: #3b82f6;
+  color: white;
+  transform: scale(1.1);
+}
+
+.delete-btn {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.delete-btn:hover {
+  background: #ef4444;
+  color: white;
+  transform: scale(1.1);
+}
+
+.empty-state {
+  background: white;
+  padding: 4rem 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.empty-state h3 {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+  color: #1e293b;
+}
+
+.empty-state p {
+  color: #64748b;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.empty-state .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+@media (max-width: 768px) {
+  .my-properties-page {
+    padding: 2rem 0;
+  }
+
+  .my-properties-page h1 {
+    font-size: 2rem;
+  }
+
+  .my-properties-page .page-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .page-header .btn {
+    width: 100%;
+  }
+
+  .properties-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .property-features {
+    gap: 1rem;
+  }
+
+  .property-features span {
+    font-size: 0.8rem;
+  }
+
+  .property-body {
+    padding: 1.25rem;
+  }
+
+  .property-body h3 {
+    font-size: 1.125rem;
+  }
+
+  .amount {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .my-properties-page {
+    padding: 1.5rem 0;
+  }
+
+  .my-properties-page h1 {
+    font-size: 1.75rem;
+  }
+
+  .my-properties-page .page-header > div > p {
+    font-size: 1rem;
+  }
+
+  .properties-grid {
+    gap: 1.25rem;
+  }
+
+  .property-card {
+    border-radius: 0.875rem;
+  }
+
+  .property-image {
+    height: 220px;
+  }
+
+  .property-body {
+    padding: 1.125rem;
+  }
+
+  .property-body h3 {
+    font-size: 1.0625rem;
+  }
+
+  .location {
+    font-size: 0.875rem;
+  }
+
+  .property-features {
+    gap: 0.875rem;
+  }
+
+  .property-features span {
+    font-size: 0.75rem;
+  }
+
+  .amount {
+    font-size: 1.25rem;
+  }
+
+  .period {
+    font-size: 0.8125rem;
+  }
+
+  .action-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+
+  .status-badge {
+    font-size: 0.8125rem;
+    padding: 0.4rem 0.875rem;
+  }
+
+  .empty-state {
+    padding: 3rem 1.5rem;
+  }
+
+  .empty-state h3 {
+    font-size: 1.5rem;
+  }
+
+  .empty-state p {
+    font-size: 1rem;
+  }
+}

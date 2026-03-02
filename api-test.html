@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+</head>
+<body>
+    <h1>RentiGo API Connection Test</h1>
+    <button onclick="testConnection()">Test Backend Connection</button>
+    <button onclick="testRegister()">Test Registration</button>
+    <div id="result" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;"></div>
+
+    <script>
+        const API_URL = 'http://localhost:5000/api';
+
+        function showResult(message, isError = false) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.backgroundColor = isError ? '#ffcccc' : '#ccffcc';
+            resultDiv.innerHTML = '<pre>' + JSON.stringify(message, null, 2) + '</pre>';
+            console.log(message);
+        }
+
+        async function testConnection() {
+            try {
+                showResult('Testing connection to ' + API_URL + '/health ...');
+                const response = await fetch(API_URL + '/health');
+                const data = await response.json();
+                showResult({
+                    status: 'SUCCESS',
+                    message: 'Backend is reachable',
+                    data: data
+                });
+            } catch (error) {
+                showResult({
+                    status: 'ERROR',
+                    message: 'Cannot reach backend',
+                    error: error.message,
+                    details: 'Make sure backend is running on port 5000'
+                }, true);
+            }
+        }
+
+        async function testRegister() {
+            try {
+                showResult('Testing registration API...');
+                const testUser = {
+                    name: 'API Test User',
+                    email: 'apitest@test.com',
+                    password: 'password123',
+                    phone: '9999999999',
+                    role: 'user'
+                };
+
+                const response = await fetch(API_URL + '/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(testUser)
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showResult({
+                        status: 'SUCCESS',
+                        message: 'Registration API is working',
+                        data: data
+                    });
+                } else {
+                    showResult({
+                        status: 'ERROR',
+                        message: 'Registration failed',
+                        statusCode: response.status,
+                        error: data
+                    }, true);
+                }
+            } catch (error) {
+                showResult({
+                    status: 'ERROR',
+                    message: 'Cannot connect to registration API',
+                    error: error.message,
+                    possibleCauses: [
+                        'Backend not running',
+                        'CORS issue',
+                        'Network error',
+                        'Wrong API URL'
+                    ]
+                }, true);
+            }
+        }
+    </script>
+</body>
+</html>
