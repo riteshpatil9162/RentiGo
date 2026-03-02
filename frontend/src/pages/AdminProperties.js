@@ -8,7 +8,6 @@ import {
   FaRuler, 
   FaMapMarkerAlt, 
   FaTrash, 
-  FaEdit,
   FaEye,
   FaCheckCircle,
   FaTimesCircle 
