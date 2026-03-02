@@ -1,0 +1,489 @@
+.pricing-page {
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.pricing-hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  color: white;
+  padding: 8rem 0 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.pricing-hero h1,
+.pricing-hero p,
+.billing-toggle {
+  position: relative;
+  z-index: 1;
+}
+
+.pricing-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.pricing-hero p {
+  font-size: 1.25rem;
+  opacity: 0.95;
+  margin-bottom: 3rem;
+}
+
+/* Billing Toggle */
+.billing-toggle {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.5rem;
+  border-radius: 3rem;
+  backdrop-filter: blur(10px);
+}
+
+.toggle-btn {
+  padding: 0.75rem 2rem;
+  background: transparent;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toggle-btn.active {
+  background: white;
+  color: var(--accent-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.discount-badge {
+  background: #10b981;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* Pricing Cards */
+.pricing-cards-section {
+  padding: 5rem 0;
+  background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.pricing-card {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.pricing-card.popular {
+  border: 2px solid var(--accent-color);
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.2);
+}
+
+.pricing-card.popular:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 15px 45px rgba(59, 130, 246, 0.25);
+}
+
+.popular-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: -2.5rem;
+  background: var(--accent-color);
+  color: white;
+  padding: 0.5rem 3rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transform: rotate(45deg);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.plan-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.plan-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.plan-header h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.plan-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.plan-price {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.price-amount {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.currency {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+}
+
+.amount {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.period {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-top: 1.5rem;
+}
+
+.savings {
+  font-size: 0.875rem;
+  color: #10b981;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.plan-features {
+  margin-bottom: 2rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  font-size: 0.95rem;
+}
+
+.feature-item.disabled {
+  opacity: 0.5;
+}
+
+.feature-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.plan-btn {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+}
+
+.plan-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Features Comparison */
+.features-comparison {
+  padding: 5rem 0;
+  background: white;
+}
+
+.features-comparison h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+}
+
+.comparison-table-wrapper {
+  overflow-x: auto;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--border-color);
+}
+
+.comparison-table thead {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: white;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 1.25rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.comparison-table th {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.comparison-table th:first-child,
+.comparison-table td:first-child {
+  text-align: left;
+  font-weight: 600;
+}
+
+.comparison-table tbody tr:hover {
+  background: var(--bg-secondary);
+}
+
+.yes-icon {
+  color: #10b981;
+  font-size: 1.25rem;
+}
+
+.no-icon {
+  color: #ef4444;
+  font-size: 1.25rem;
+}
+
+/* FAQ Section */
+.pricing-faq {
+  padding: 5rem 0;
+  background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+}
+
+.pricing-faq h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.faq-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--border-color);
+}
+
+.faq-item h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.faq-item p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* CTA Section */
+.pricing-cta {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 70% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.pricing-cta h2,
+.pricing-cta p,
+.btn-large {
+  position: relative;
+  z-index: 1;
+}
+
+.pricing-cta h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.pricing-cta p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  margin-bottom: 2rem;
+}
+
+.btn-large {
+  padding: 1.25rem 3rem;
+  font-size: 1.1rem;
+  background: white;
+  color: var(--accent-color);
+}
+
+.btn-large:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 2rem auto 0;
+  }
+
+  .pricing-card.popular {
+    transform: scale(1);
+  }
+
+  .pricing-card.popular:hover {
+    transform: translateY(-10px);
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-hero {
+    padding: 6rem 0 3rem;
+  }
+
+  .pricing-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .pricing-hero p {
+    font-size: 1.1rem;
+  }
+
+  .toggle-btn {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .features-comparison h2,
+  .pricing-faq h2,
+  .pricing-cta h2 {
+    font-size: 2rem;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .pricing-hero h1 {
+    font-size: 2rem;
+  }
+
+  .billing-toggle {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .toggle-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pricing-card {
+    padding: 2rem;
+  }
+
+  .amount {
+    font-size: 3rem;
+  }
+
+  .comparison-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .comparison-table {
+    min-width: 600px;
+  }
+}

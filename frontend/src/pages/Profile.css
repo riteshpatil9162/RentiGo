@@ -1,7 +1,7 @@
 .profile-page {
   min-height: 100vh;
   padding: 6rem 0 3rem;
-  background: linear-gradient(135deg, var(--bg-secondary) 0%, white 50%, var(--bg-secondary) 100%);
+  background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 50%, #f8fafc 100%);
 }
 
 .profile-header {
@@ -35,7 +35,7 @@
   background: white;
   padding: 2.5rem;
   border-radius: 1.25rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   text-align: center;
   border: 1px solid var(--border-color);
   animation: fadeIn 0.5s ease;
@@ -113,12 +113,13 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
 }
 
 .avatar-upload-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+  background: linear-gradient(135deg, #2563eb, #1e40af);
 }
 
 .avatar-upload-btn:disabled {
@@ -154,7 +155,7 @@
   border-radius: 2rem;
   font-weight: 600;
   font-size: 0.9rem;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
 }
 
 .profile-role svg {
@@ -166,7 +167,7 @@
   background: white;
   padding: 2.5rem;
   border-radius: 1.25rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   border: 1px solid var(--border-color);
   animation: fadeIn 0.5s ease;
 }
@@ -253,7 +254,7 @@
 
 .profile-form .btn-block:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
 }
 
 .profile-form .btn-block:disabled {
